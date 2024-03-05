@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="stylesheets/LoginPage.css">
+
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="nav__container">
+      <div class="nav__container--left">
+        <img onclick="location.href='HomePage.html';" src="images/img.png" alt="your-image">
+      </div>
+      <div class="nav__container--right">
+        <a href="Register.html">Register</a>
+      </div>
+
+    </div>
+    <div class="nav_decorator">
+    </div>
+  </nav>
+
+  <div class="signup-form">
+    <form action="/login" method="post">
+      <label for="email">Email or<br>Username</label>
+      <input type="text" id="email" name="user" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+
+      <input class="button" type="submit" value="LOGIN">
+    </form>
+
+    <!-- <form action="/ForgotPassword.html" method="get">
+    <button class="button" type ="submit">Forgot Password?</button>
+  </form>
+  </form> -->
+
+  </div>
+
+  <script>
+
+    const params = new URLSearchParams(window.location.search);
+
+    const message = params.get('message');
+
+    var signupForm = document.querySelector('.signup-form');
+
+    if (message) {
+
+      const messageDiv = document.createElement('div');
+      messageDiv.textContent = message;
+      messageDiv.style.color = 'black';
+      messageDiv.style.marginBottom = '10px';
+
+      signupForm.insertBefore(messageDiv, signupForm.firstChild);
+    }
+    var appiv = new Vue({
+      el: '#login',
+      data: {
+
+      },
+      methods: {
+
+      }
+
+
+
+    });
+
+  </script>
+</body>
+
+</html>

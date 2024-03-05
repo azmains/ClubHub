@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Manager</title>
+  <link rel="stylesheet" href="stylesheets/ClubHubStyling.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div class="main">
+      <div class="topNav">
+        <div class="left">
+          <nav>
+            <a href="HomePage.html" class="tab active">Home</a>
+
+            <button type=button id="makeAdmin" onclick="assignAdmin()" class="admin">Assign Admin </button>
+            <button type=button id="makeClub" class="admin" onclick="openCreateClubMenu()">
+              Create Club
+            </button>
+            <a href="ProfileSettings.html" class="tab active topLeft">Settings</a>
+          </nav>
+        </div>
+
+        <br />
+        <h1 id="title"><span class="clubCol">Club</span>Admin</h1>
+
+        <hr class="breakTop" />
+      </div>
+      <div class="leftContent">
+        <div id="availbleClubs">
+          <h2>Clubs</h2>
+
+        </div>
+      </div>
+      <div class="rightContent">
+        <h2 class="UserContent">Users</h2>
+        <hr class="break" />
+        <div class="userNumbers">
+          <div class="user">
+            <p class="name">
+              Name: {{ searchedUser ? searchedUser.name : '' }}
+            </p>
+            <p class="userName">
+              UserName: {{ searchedUser ? searchedUser.UserName : '' }}
+            </p>
+            <p class="MemeberID">
+              MemberID: {{ searchedUser ? searchedUser.memNum : '' }}
+            </p>
+          </div>
+        </div>
+        <hr class="breakUser" />
+        <div class="find">
+          <h2 class="fUser">Find User:</h2>
+          <input type="search" id="searchMemberID" name="q" placeholder="Enter User Name" v-model="searchUsername" />
+          <br />
+          <button type=button id="removeUser" class="userOption" onclick="deleteUser() ">
+            Remove
+          </button>
+          <button type=button id="moreDetails" class="userOption1" onclick="searchUser()">
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="popup">
+      <input type="text" name="clubname" placeholder="Enter Club Name" />
+      <button type=button class="createClub">Create</button>
+    </div>
+  </div>
+  <script src="javascripts/AdminManager.js"></script>
+</body>
+
+</html>

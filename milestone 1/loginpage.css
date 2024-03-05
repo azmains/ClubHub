@@ -1,0 +1,311 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue&display=swap');
+/* media query for forum login */ 
+
+/*  */
+body
+{
+    font-size: 1em;
+    margin: 0;
+    padding: 0;
+    background-color: #F5F5DC;    
+}
+a{
+    text-decoration: none;
+}
+
+h1{
+    font-family: 'Epilogue', sans-serif;
+    color: #3F4045;
+    font-size: 2em;
+}
+
+  .nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height:85px;
+    border-bottom: 3px solid #000000;
+    position: relative;
+  }
+
+  nav img {
+    width: 17em;
+    height:auto ;
+  }
+  
+  .left-nav {
+    margin-left: 20px; 
+    
+  }
+  
+  .right-nav {
+    display: inline;
+    font-family: 'Epilogue', sans-serif;
+
+}
+  .right-nav a {
+    margin-right: 1em;
+    font-style: normal;
+    font-size: 2em;
+    color: #3F4045;
+ 
+  }
+
+  .right-home-nav {
+    display: inline;
+    font-family: 'Epilogue', sans-serif;
+
+}
+.right-home-nav a {
+  margin-right: 1em;
+  font-style: normal;
+  font-size: 2em;
+  color: #3F4045;
+
+}
+  .nav-decorator {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10em;
+    height: .5em;
+    background: #FCFCFC;
+    border: 3px solid #000000;
+    border-radius: 20px;
+  }
+  
+  p{
+    font-family: 'Epilogue', sans-serif;
+    font-size: 1.4rem;
+  }
+
+  .signup-form {
+    margin:50px auto -20px ;
+    width: 16em;
+    padding: 20px;
+    border: 3px solid #333;
+    border-radius: 22px;
+    background: #B8ADAD;
+    
+  }
+
+
+.home-grid{
+    margin:50px auto -20px ;
+    width: 70%;
+    padding: 20px;
+    border: 3px solid #333;
+    border-radius: 22px;
+    background: #B8ADAD;
+    
+
+}
+
+.event-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .event {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .event-details {
+    flex-direction: column;
+    margin-right: 20px;
+  }
+  
+  .book-now {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .more-info {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  
+
+  .accountbox {
+    margin:50px auto -20px ;
+    width: 16em;
+    padding: 0px 20px;
+    border: 3px solid #333;
+    border-radius: 22px;
+    background: #B8ADAD;
+   
+    
+  }
+  .signup-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  /* for the big text ur pw reset one */
+ 
+  .signup-form h2 {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  
+  .signup-form label {
+    margin-bottom: .5em;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 1.7em;
+    color: #3F4045;
+
+  }
+
+ 
+  .signup-form input[type="email"],
+  .signup-form input[type="text"],
+  .signup-form input[type="password"] {
+    width: 60%;
+    padding: 10px 0 5px;
+    align-items: center;
+    border-radius: 5px;
+    background: white;
+    border: 3px solid #000000;  
+    border-radius: 20px;
+    margin: 0 auto 20px auto
+}
+
+.signup-form input[type="email"]:hover,
+.signup-form input[type="text"]:hover,
+.signup-form input[type="password"]:hover {
+  box-shadow: 0 5px #666;
+}
+
+.eventsButton{
+    padding: 1em;
+    background: white;
+    font-family: 'Epilogue', sans-serif;
+    color: #ed2626;
+    font-size: 20px;
+
+    font-weight: bold;
+        border-radius: 1px;
+    border: 5px solid #ed2626;  
+
+}    
+.eventsButton2{
+    padding: 1em;
+    background: white;
+    font-family: 'Epilogue', sans-serif;
+    color: #000000;
+    font-size: 20px;
+    font-weight: bold;
+        border-radius: 1px;
+    border: 5px solid #333;  
+
+}    
+.button {
+    width: 30%;
+    padding: 2px ;
+    padding-top: 5px;
+    background: white;;
+    border-radius: 5px;
+    border: 3px solid #000000;  
+    border-radius: 20px;
+    text-align: center;
+    margin: 0 auto;
+  }
+ 
+  .button2 {
+    width: 60%;
+    padding: 10px;
+    border-radius: 5px;
+    background: white;
+    border: 3px solid #000000;  
+    border-radius: 20px;
+    text-align: center;
+    margin: 30px auto 100px auto;
+    color: #000000;
+    font-family: 'Epilogue', sans-serif;
+    font-size: 1.2rem;
+  }
+
+  .eventsButton:hover {
+    box-shadow: 0 5px #666;
+    }
+    .eventsButton:active {
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+
+
+.button:hover {
+box-shadow: 0 5px #666;
+}
+.button:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.button2:hover {
+    box-shadow: 0 5px #666;
+    }
+    .button2:active {
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+
+  .tick-image{
+    width: 2em;
+    height:auto ;
+  }
+  
+  
+  .signup-form input[type="submit"]:hover {
+    background-color: #555;
+  }
+  form p{
+    color: #3F4045;
+    font-size: 1.2em;
+    margin:0 0 45px;
+  }
+
+  form a p{
+    color: #3F4045;
+    font-size: 1.2em;
+    margin:30px 0 45px;
+    text-align: center;
+  }
+
+  button form p {
+    margin: 50px 0 10px 0px;
+    color: #3F4045;
+    text-align: center;
+  }
+
+  @media (max-width: 588px) {
+    .right-nav a {
+      font-size: 1.4em;
+      margin-right: .9em;
+    }
+  }
+
+  @media (max-width: 588px) {
+    .right-home-nav a {
+      font-size: 1.3em;
+      margin-left: 1.1em;
+      margin-right: .8em;
+    }
+  }
+

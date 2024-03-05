@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Club Manager</title>
+  <link rel="stylesheet" href="stylesheets/ClubManager.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <div class="topNav">
+      <div class="left">
+        <nav>
+          <a href="HomePage.html" class="tab active">Home</a>
+
+          <a href="ProfileSettings.html" class="tab active topLeft">Settings</a>
+          <a href="ListOFClubs.html" class="tab active topLeft">Back</a>
+        </nav>
+      </div>
+
+      <br />
+      <h1 id="title"><span class="clubCol">Club</span>Manager</h1>
+
+      <hr class="breakTop" />
+    </div>
+
+    <div class="middle">
+      <h2 class="UserContent">Users</h2>
+      <hr class="break" />
+      <div class="userNumbers">
+
+        <div class="user">
+          <p class="name">Name: <span class="name-value"></span></p>
+          <p class="userName">Username: <span class="username-value"></span></p>
+          <p class="membershipID">Membership ID: <span class="membershipID-value"></span></p>
+        </div>
+
+      </div>
+      <hr class="breakUser" />
+      <div class="find">
+        <h2 class="fUser">Find User:</h2>
+        <input type="search" id="searchMemberID" name="q" placeholder="Enter User Name" v-model="searchUsername" />
+        <br />
+        <button type=button id="removeUserButton" class="userOption" v-on:click="removeUser">
+          Remove
+        </button>
+        <button type=button id="moreDetails" class="userOption1" v-on:click="searchUser">
+          Search
+        </button>
+      </div>
+    </div>
+    <div class="left">
+      <button type=button id="makeManager" class="Manager">Set Manager</button>
+    </div>
+    <div class="clubMembers">
+      <h2>Club Members</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Username</th>
+
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+    <div class="eventBookings">
+      <h2>Event Bookings</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Event Name</th>
+            <th>User</th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script src="javascripts/ClubManager.js"></script>
+</body>
+
+</html>

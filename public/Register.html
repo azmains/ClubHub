@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Register</title>
+  <link rel="stylesheet" href="stylesheets/LoginPage.css">
+</head>
+
+<body>
+  <nav class="nav">
+    <div class="nav__container">
+      <div class="nav__container--left">
+        <img onclick="location.href='HomePage.html';" src="images/img.png" alt="your-image">
+      </div>
+      <div class="nav__container--right">
+        <a href="Login.html">Login</a>
+      </div>
+
+    </div>
+    <div class="nav_decorator">
+    </div>
+  </nav>
+  <div class="signup-form">
+
+    <form action="/register" method="post">
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="username">Username</label>
+      <input type="text" id="username" name="Username" required>
+
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" name="fullname" required>
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required>
+
+      <input class="button" type="submit" value="REGISTER">
+
+    </form>
+  </div>
+
+  <div class="accountbox">
+
+    <a href="Login.html">
+      <p>Already have an account?</p>
+    </a>
+
+  </div>
+
+  <script>
+
+    const params = new URLSearchParams(window.location.search);
+
+    const message = params.get('message');
+
+    var signupForm = document.querySelector('.signup-form');
+
+    if (message) {
+      const messageDiv = document.createElement('div');
+      messageDiv.textContent = decodeURIComponent(message);
+
+      messageDiv.textContent = message;
+      messageDiv.style.color = 'red';
+      messageDiv.style.backgroundColor= 'white';
+      messageDiv.style.border= '2px solid red';
+      messageDiv.style.borderRadius= '10px';
+      messageDiv.style.padding= '10 px';
+      messageDiv.style.textAlign='center';
+      messageDiv.style.marginTop = '10 px';
+      messageDiv.style.marginBottom= ' 10 px';
+      // signupForm.insertBefore(messageDiv, signupForm.firstChild);
+      signupForm.appendChild(messageDiv);
+    }
+  </script>
+</body>
+
+</html>

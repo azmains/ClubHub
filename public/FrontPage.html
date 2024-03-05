@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Home</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="javascripts/FrontPage.js" defer></script>
+    <link rel="stylesheet" href="stylesheets/FrontPage.css">
+</head>
+
+<body>
+    <div id="app">
+        <nav class="nav">
+            <div class="nav__container">
+                <div class="nav__container--left">
+                    <img onclick="location.href='HomePage.html';" src="images/img.png" alt="your-image">
+                </div>
+                <div class="nav__container--right">
+                    <club-name>{{ clubName }}</club-name>
+                    <a v-if="!userID" href="Login.html">Login</a> <!-- Only show when user is not logged in -->
+                    <a v-if="!userID" href="Register.html">Register</a> <!-- Only show when user is not logged in -->
+                    <a href="#" v-if="userID" v-on:click="toggleFollow">{{ isFollowing ? 'Unfollow' : 'Follow' }}</a>
+                    <a v-if="userID" href="ProfileSettings.html">Settings</a> <!-- Only show when user is logged in -->
+                    <a v-if="userID" href="#" @click="logout">Logout</a>
+                    <a v-if="userID && isClubManager" :href="getClubManagerURL()">Club Manager</a>
+                    <!-- Only show when user is logged in and is a club manager -->
+                </div>
+            </div>
+            <div class="nav_decorator"></div>
+        </nav>
+
+        <div class="home-grid">
+
+            <div id="loginPopup" class="signup-form" v-if="showLoginModal">
+                <div class="popup-content">
+                    <button type=button class="close-button" @click="toggleLoginPopup">Close</button>
+                    <div v-if="isLoginForm">
+                        <form action="/login" method="post">
+                            <label for="email">Email or<br>Username</label>
+                            <input type="text" class="email" name="user" required>
+
+                            <label for="password">Password</label>
+                            <input type="password" class="password" name="password" required>
+
+                            <input class="button" type="submit" value="LOGIN">
+
+                            <button type="button" @click="toggleLoginForm">Don't have an account?</button>
+                        </form>
+                    </div>
+                    <div v-else>
+                        <form action="/register" method="post">
+                            <label for="email">Email</label>
+                            <input type="email" class="email" name="email" required>
+
+                            <label for="username">Username</label>
+                            <input type="text" class="username" name="Username" required>
+
+                            <label for="fullname">Full Name</label>
+                            <input type="text" class="fullname" name="fullname" required>
+
+                            <label for="password">Password</label>
+                            <input type="password" class="password" name="password" required>
+
+                            <input class="button" type="submit" value="REGISTER">
+
+                            <button type="button" class="accountbox" @click="toggleLoginForm">Already have an
+                                account?</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" id="aboutClubTab" @click="toggleAboutUs">About {{ clubName }}</button>
+
+            <div id="aboutClubContainer" v-if="aboutUsVisible">
+
+                <div id="aboutClubContent">
+                    <div class="about-us-edit" v-if="userID && isClubManager">
+                        <button class="action-btn" type="button" @click="showAboutUsForm = !showAboutUsForm" v-if="!showAboutUsForm">EDIT</button>
+
+                        <div v-if="showAboutUsForm">
+                            <form @submit.prevent="submitAboutUs">
+                                <label for="aboutUs">About Us (Char Limit 1000):</label>
+                                <textarea id="aboutUs" v-model="clubInfo.AboutUs" required maxlength="1000"></textarea>
+                                <input class="action-btn" type="submit" value="Update About Us">
+                            </form>
+                        </div>
+                    </div>
+
+                    <h1>About {{ clubName }}</h1>
+                    <button type="button" id="closeButton" @click="toggleAboutUs">Close</button>
+                    <div id="aboutClubText">
+                        <p>{{ clubInfo.AboutUs }}</p>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="event-box__header">
+                <div class="event-box__title">
+                    <p><strong>Upcoming Events</strong></p>
+                </div>
+                <div class="event-box__edit-btn" v-if="userID && isClubManager">
+                    <button class="action-btn" type="button" @click="showEventForm = !showEventForm">NEW EVENT</button>
+                    <div v-if="showEventForm">
+                        <div class="event-post-form">
+                            <p>Press New Event Button to Escape</p>
+                            <form @submit.prevent="submitEvent">
+                                <div>
+                                <label for="eventName">Event Name: </label>
+                            </div>
+                            <div>
+                                <input type="text" id="eventName" v-model="newEvent.EventName" required>
+                                </div>
+                                <div>
+                                <label for="description">Description: </label>
+                            </div>
+                            <div>
+                                <textarea id="description" v-model="newEvent.Description" required maxlength="300"></textarea>
+                                </div>
+                                <div>
+                                <label for="date">Date: </label>
+                            </div>
+                            <div>
+                                <input type="date" id="date" v-model="newEvent.Date" required>
+                                </div>
+                                <div>
+                                <label for="time">Time: </label>
+                            </div>
+                            <div>
+                                <input type="time" id="time" v-model="newEvent.Time" required>
+                                </div>
+                                <br>
+                                <div>
+                                <label for="address">Address: </label>
+                            </div>
+                            <div>
+                                <input type="text" id="address" v-model="newEvent.Address" required>
+                                </div>
+                                <div>
+                                <input type="submit" value="Create Event">
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="event-container">
+                <div class="event" v-for="event in upcomingEvents" :key="event.EventID">
+                    <div class="event__details event__details--upcoming">
+                        <button class="action-btn" type="button" v-if="userID && isClubManager"
+                            @click="deleteEvent(event.EventID)">Delete Event</button>
+                        <h1>{{ event.EventName }}</h1>
+                        <p>Event Date/Time: {{ formatDate(event.Date) }} {{ formatTime(event.Time) }}</p>
+                        <p>Location: {{ event.Address }}</p>
+                        <p class="event__small-text">{{ event.Description }}</p>
+                    </div>
+                    <a class="event__btn--red" :id="'book-button-' + event.EventID" @click="toggleBook(event.EventID)">
+                        {{ event.isBooked ? 'Unbook' : 'Book' }}
+                    </a>
+                </div>
+            </div>
+
+
+            <div class="event-box__header">
+                <div class="event-box__title">
+                    <p><strong>Club Posts</strong></p>
+                </div>
+                <div class="post-box__edit-btn" v-if="userID && isClubManager">
+                    <button class="action-btn" type="button" @click="showPostForm = !showPostForm">NEW POST</button>
+                    <div v-if="showPostForm">
+                        <div class="event-post-form">
+                            <p>Press New Post Button to Escape</p>
+                            <form @submit.prevent="submitPost">
+                                <label for="title">Title: </label>
+                                <input type="text" id="title" v-model="newPost.title" required maxlength="300">
+                                <label for="content">Content: </label>
+                                <textarea id="content" v-model="newPost.content" required></textarea>
+                                <label for="privacy">Privacy: </label>
+                                <select id="privacy" v-model="newPost.PublicStatus">
+                                    <option value="1">Public</option>
+                                    <option value="0">Club Only</option>
+                                </select>
+                                <input type="submit" value="Submit Post">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="event-container">
+                <template v-for="post in clubPosts">
+                    <div class="event" v-if="post.PublicStatus">
+                        <!-- Display for public posts -->
+                        <div class="event__details event__details--past">
+                            <button class="action-btn" type="button" v-if="userID && isClubManager"
+                                @click="deletePost(post.PostID)">Delete Post</button>
+                            <h1>{{ post.Title }}</h1>
+                            <div class="event__details--past-content">
+                                <p class="event__small-text">{{ post.Content }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event" v-else-if="!post.PublicStatus && isFollowing">
+                        <!-- Display for private posts when user is following -->
+                        <div class="event__details event__details--past">
+                            <button class="action-btn" type="button" v-if="userID && isClubManager"
+                                @click="deletePost(post.PostID)">Delete Post</button>
+                            <h1>{{ post.Title }}</h1>
+                            <div class="event__details--past-content">
+                                <p class="event__small-text">{{ post.Content }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

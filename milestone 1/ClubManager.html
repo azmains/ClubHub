@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="ClubManager.css" />
+  </head>
+  <body>
+    <div class="topNav">
+      <div class="left">
+        <nav>
+          <a href="#" class="tab active">Home</a>
+
+          <a href="/profileSettings.html" class="tab active topLeft"
+            >Settings</a
+          >
+          <a
+            href="/profileSettings.html"
+            onclick="location.href = document.referrer; return false;"
+            class="tab active topLeft"
+            >Back</a
+          >
+        </nav>
+      </div>
+
+      <br />
+      <h1 id="title"><span class="clubCol">Club</span>Manager</h1>
+
+      <hr class="breakTop" />
+    </div>
+
+    <div class="middle">
+      <h2 class="UserContent">Users</h2>
+      <hr class="break" />
+      <div class="userNumbers">
+        <div class="user">
+          <p class="name">Name: Bob Marlin</p>
+          <p class="userName">UserName: ManBat</p>
+          <p class="MemeberID">Member: 123456</p>
+        </div>
+        <div class="AttendEvents">
+          <p>Events Attending: 24/6/2023</p>
+        </div>
+      </div>
+      <hr class="breakUser" />
+      <div class="find">
+        <h2 class="fUser">Find User:</h2>
+        <input
+          type="search"
+          id="searchMemberID"
+          name="q"
+          placeholder="Enter User Name"
+        />
+        <br />
+        <button id="removeUser" class="userOption">Remove</button>
+        <button id="moreDetails" class="userOption1">Search</button>
+      </div>
+    </div>
+    <div class="left">
+      <button id="makeManager" class="Manager">Create Manager</button>
+
+      <button id="deleteManager" class="Manager">Delete Manager</button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,170 @@
+body {
+    background-color: #f5f5dc;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.left {
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+.topLeft {
+    margin-left: 12%;
+}
+
+#title {
+    text-align: center;
+    float: none;
+    font-size: 50px;
+    font-weight: lighter;
+    margin: 0%;
+}
+
+.breakTop {
+    height: 5px;
+    color: black;
+    background-color: black;
+    width: 110%;
+    size: 100%;
+    border: none;
+    margin-right: -20px;
+    margin-left: -20px;
+    margin-bottom: 100px;
+    margin-top: 25px;
+}
+
+h2 {
+    margin-top: 2%;
+    margin-left: 5%;
+    font-size: 35px;
+}
+
+.admin {
+    margin-bottom: 15%;
+    border-radius: 10px;
+    border-width: 5px;
+    height: 40px;
+    background-color: #D9D9D9;
+    padding-left: 0;
+}
+
+.clubCol {
+    color: gray;
+}
+
+.middle {
+    outline-style: solid;
+    outline-width: 5px;
+    border-radius: 10px;
+    width: 75%;
+    margin-left: 12%;
+    text-align: center;
+    margin-top: 1%;
+    background-color: darkgrey;
+}
+
+.left {
+    margin-left: 1%;
+}
+
+.Manager {
+    outline-style: solid;
+    outline-width: 5px;
+    border-radius: 10px;
+    font-size: 25px;
+    margin-top: 3%;
+}
+
+#deleteManager {
+    margin-left: 1%;
+}
+
+.UserContent {
+    text-align: center;
+    margin: 0;
+    margin-top: 5px;
+}
+
+.break {
+    height: 5px;
+    color: black;
+    background-color: black;
+    width: 100%;
+    size: 100%;
+    border: none;
+}
+
+.fUser {
+    display: inline-block;
+    margin: 0;
+    margin-top: 5px;
+    margin-left: 5%;
+}
+
+input {
+    height: 30px;
+    width: 50%;
+    border: none;
+    font-size: 25px;
+    background-color: lightgray;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-left: 5px;
+    padding-bottom: 7px;
+}
+
+.userOption {
+    margin-left: 5%;
+    margin-bottom: 10px;
+    font-size: 25px;
+    border-radius: 10px;
+    outline-style: solid;
+    outline-width: 5px;
+}
+
+.userOption1 {
+    margin-left: 8%;
+    margin-bottom: 10px;
+    font-size: 25px;
+    border-radius: 10px;
+    outline-style: solid;
+    outline-width: 5px;
+}
+
+.find {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    outline-style: solid;
+}
+
+.user {
+    font-size: 25px;
+    margin: 0;
+    margin-left: 5%;
+    font-weight: bold;
+    max-width: 100%;
+}
+
+.breakUser {
+    height: 5px;
+    color: black;
+    background-color: gray;
+    border: none;
+}
+
+.AttendEvents {
+    font-size: 25px;
+    margin: 0;
+    margin-left: 5%;
+    font-weight: bold;
+    max-width: 100%;
+}

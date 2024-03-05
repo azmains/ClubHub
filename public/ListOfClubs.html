@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>List Of Clubs</title>
+  <link rel="stylesheet" href="stylesheets/HomePage.css">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <nav class="nav">
+      <div class="nav__container">
+        <div class="nav__container--left">
+          <img onclick="location.href='HomePage.html';" src="images/img.png" alt="your-image">
+        </div>
+        <div class="nav__container--right">
+          <a v-if="userID" href="#" @click="logout">Logout</a>
+          <a v-if="!userID" href="Login.html">Login</a>
+          <a v-if="!userID" href="Register.html">Register</a>
+        </div>
+
+      </div>
+      <div class="nav_decorator">
+      </div>
+    </nav>
+        <h2>Clubs</h2>
+        <div class="home-grid">
+          <div class="club-box__header">
+            <div class="club-box__title">
+              <p><strong>Club List!</strong></p>
+            </div>
+          </div>
+            <div class="club-container">
+              <div class="club" v-for="club in clubs" :key="club.ClubID">
+                <div class="club-details">
+                  <h1>{{ club.Name }}</h1>
+                  <div class="desciption">
+                  <p>About Us: {{ club.AboutUs }}</p>
+                  </div>
+                </div>
+                <a class="event__btn--black--list" :href="'/FrontPage.html?clubName=' + club.Name">Go To {{ club.Name }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          clubName: null,
+          userID: null,
+          clubs: {} // Add a new data property to store the list of clubs
+        };
+      },
+        mounted() {
+    this.fetchUserID();
+    this.loadClubs();
+      },
+      methods: {
+        // Existing methods...
+
+        loadClubs() {
+          let xhttp = new XMLHttpRequest();
+          xhttp.open("GET", "/getClubs", true);
+          xhttp.onreadystatechange = () => {
+            if (xhttp.readyState === 4 && xhttp.status === 200) {
+              this.clubs = JSON.parse(xhttp.responseText);
+            }
+          };
+          xhttp.send();
+        },
+          fetchUserID() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("GET", "/users/getUserID", true);
+            xhttp.onreadystatechange = () => {
+                if (xhttp.readyState === 4 && xhttp.status === 200) {
+                    this.userID = JSON.parse(xhttp.responseText).userID;
+                }
+            };
+            xhttp.send();
+        },
+        logout() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.open("POST", "/logout", true);
+            xhttp.onreadystatechange = () => {
+                if (xhttp.readyState === 4 && xhttp.status === 200) {
+                    location.reload();
+                }
+            };
+            xhttp.send();
+        }
+      }
+    });
+
+    app.mount('#app');
+
+  </script>
+
+</body>
+
+</html>

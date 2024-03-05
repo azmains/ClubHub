@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>ClubHub</title>
+  <link rel="stylesheet" href="stylesheets/HomePage.css">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="javascripts/HomePage.js" defer></script>
+</head>
+
+<body>
+  <div id="app">
+
+    <nav class="nav">
+      <div class="nav__container">
+        <div class="nav__container--left">
+          <img onclick="location.href='HomePage.html';" src="images/img.png" alt="your-image">
+        </div>
+        <div class="nav__container--right">
+          <a v-if="!userID" href="Login.html">Login</a>
+          <a v-if="!userID" href="Register.html">Register</a>
+          <a v-if="userID" href="ProfileSettings.html">Settings</a>
+          <a href="ListOfClubs.html">Club List</a>
+          <a v-if="userID" href="#" @click="logout">Logout</a>
+          <a v-if="userID && isAdmin" href="AdminManager.html">Admin</a>
+        </div>
+      </div>
+      <div class="nav_decorator"></div>
+    </nav>
+
+    <div class="home-grid">
+      <div class="event-container" id="events">
+        <div v-if="Object.keys(eventInformation).length === 0">
+          <p>You are not following any clubs. Press the Club List button to look for clubs to follow.</p>
+        </div>
+        <div class="event" v-for="event in eventInformation" :key="event.EventName">
+          <div class="event-details">
+            <h1>{{ event.EventName }}</h1>
+            <p>Event Date/Time: {{ formatDate(event.Date) }} {{ formatTime(event.Time) }}</p>
+          </div>
+          <a class="event__btn--black" :href="'/FrontPage.html?clubName=' + event.ClubName">More Info</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>

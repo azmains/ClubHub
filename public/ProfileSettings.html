@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>Profile settings</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="javascripts/profileSettings.js"></script>
+    <link rel="stylesheet" href="fontawesome/css/all.css" />
+    <link rel="stylesheet" href="stylesheets/ProfileSettings.css">
+    <script src="https://kit.fontawesome.com/cb7576b6ac.js" crossorigin="anonymous"></script>
+
+
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="topContent">
+        <nav class="exit">
+          <a
+            href="#"
+            onclick="location.href = document.referrer; return false;"
+            class="exitTab"
+          >
+            <i class="fa-solid fa-x"></i
+          ></a>
+        </nav>
+      </div>
+      <div class="main">
+        <div class="leftcontent">
+          <div class="Vnav">
+            <a href="#" class="tab active">
+              <i class="fa-solid fa-circle-user"></i
+            ></a>
+            <a href="#password" class="tab"> <i class="fa-solid fa-key"></i></a>
+
+            <a href="#email" class="tab">
+              <i class="fa-solid fa-envelope"></i
+            ></a>
+            <a href="#Bevents" class="tab">
+              <i class="fa-solid fa-ticket"></i
+            ></a>
+
+            <a href="#" class="tab"> <i class="fa-solid fa-ghost"></i></a>
+          </div>
+        </div>
+        <div class="rightcontent">
+          <div class="profile tabShow">
+            <h1 id="user">User</h1>
+            <div class="box">
+              <div class="inputs">
+                <h2>User ID</h2>
+                <input class="input" type="text" v-model="inputUsername" />
+                <button type=button class="updateBtn" onclick="app.updateUsername()">
+                  Update
+                </button>
+              </div>
+            </div>
+
+            <h1>Personal Information</h1>
+            <div class="box">
+              <div class="inputs">
+                <h2>Full Name</h2>
+                <input class="input" type="text" v-model="inputFullname" />
+              </div>
+            </div>
+
+            <div class="box">
+              <h2>Birthday</h2>
+              <input type="date" class="input" v-model="inputBirthday" />
+              <br />
+              <button type=button class="updateBtn" onclick="app.updatePersonalInfo()">
+                Update
+              </button>
+            </div>
+
+
+            <h1 id="password">Account Sign-in Details</h1>
+            <div class="box">
+              <h2>Current Password</h2>
+              <input type="password" class="input" value="password" />
+            </div>
+            <div class="box">
+              <h2>New Password</h2>
+              <input type="password" class="input" value="password" v-model="newPassword"  />
+              <button type=button class="updateBtn" onclick="app.updatePassword()">Update</button>
+            </div>
+            <h1 id="email">Connected Accounts</h1>
+            <div class="box">
+              <h2>Email</h2>
+              <input type="email" class="input" v-model="email" />
+              <button type=button class="updateBtn" onclick="app.updateConnectedAccounts()">
+                Update
+              </button>
+            </div>
+          </div>
+          <div class="EnrolledEvents">
+            <h1 id="Bevents">Booked Events</h1>
+            <div class="event" v-for="event in events" :key="event.date">
+              <p id="B_events">
+                Event Name: {{ event.eventName }} <br />
+               Description: {{ event.description }} <br/>
+                Date: {{ event.date }} <br />
+                Address: {{ event.address }}<br />
+                Time: {{ event.time }} <br />
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="javascripts/profileSettings.js"></script>
+  </body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile settings</title>
+    <link
+      id="pagesize"
+      rel="stylesheet"
+      type="text/css"
+      href="profileSettings.css"
+    />
+
+    <script type="text/javascript">
+      function layoutSize() {
+        var cssStyleSheet = document.getElementById("pagesize");
+        if (window.innerWidth < 1200) {
+          cssStyleSheet.setAttribute("href", "profileSettingsMedium.css");
+        }
+        if (window.innerWidth <= 900) {
+          cssStyleSheet.setAttribute("href", "profileSettingsMobile.css");
+        }
+        if (window.innerWidth >= 1200) {
+          cssStyleSheet.setAttribute("href", "profileSettings.css");
+        }
+      }
+      window.onresize = layoutSize;
+      layoutSize();
+    </script>
+
+    <link rel="stylesheet" href="fontawesome/css/all.css" />
+    <script
+      src="https://kit.fontawesome.com/cb7576b6ac.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="topContent">
+      <nav class="exit">
+        <a
+          href="#"
+          onclick="location.href = document.referrer; return false;"
+          class="exitTab"
+        >
+          <i class="fa-solid fa-x"></i
+        ></a>
+      </nav>
+    </div>
+    <div class="main">
+      <div class="leftcontent">
+        <div class="Vnav">
+          <a href="#" class="tab active">
+            <i class="fa-solid fa-circle-user"></i
+          ></a>
+          <a href="#password" class="tab"> <i class="fa-solid fa-key"></i></a>
+
+          <a href="#email" class="tab"> <i class="fa-solid fa-envelope"></i></a>
+          <a href="#Bevents" class="tab"> <i class="fa-solid fa-ticket"></i></a>
+
+          <a href="#" class="tab"> <i class="fa-solid fa-ghost"></i></a>
+        </div>
+      </div>
+      <div class="rightcontent">
+        <div class="profile tabShow">
+          <h1 id="user">User</h1>
+          <div class="box">
+            <div class="inputs">
+              <h2>User ID</h2>
+              <input class="input" type="text" value="User Name" />
+              <button class="updateBtn">Update</button>
+            </div>
+          </div>
+
+          <h1>Personal Information</h1>
+          <div class="box">
+            <div class="inputs">
+              <h2>Full Name</h2>
+              <input class="input" type="text" value="Name" />
+            </div>
+          </div>
+
+          <div class="box">
+            <h2>Birthday</h2>
+            <input type="date" class="input" />
+          </div>
+
+          <div class="box">
+            <h2>Gender</h2>
+            <input
+              type="radio"
+              class="Radioinput"
+              id="Male"
+              name="fav_language"
+              value="Male"
+            />
+            <label class="Radioinput" for="Male">Male</label><br />
+
+            <input
+              type="radio"
+              class="Radioinput"
+              id="Female"
+              name="fav_language"
+              value="Female"
+            />
+            <label class="Radioinput" for="Female">Female</label><br />
+
+            <input
+              type="radio"
+              class="Radioinput"
+              id="Other"
+              name="fav_language"
+              value="Other"
+            />
+            <label class="Radioinput" for="Other">Other</label>
+            <br />
+            <button class="updateBtn">Update</button>
+          </div>
+          <h1 id="password">Account Sign-in Details</h1>
+          <div class="box">
+            <h2>Current Password</h2>
+            <input type="password" class="input" value="password" />
+          </div>
+          <div class="box">
+            <h2>New Password</h2>
+            <input type="password" class="input" value="password" />
+            <button class="updateBtn">Update</button>
+          </div>
+          <h1 id="email">Connected Accounts</h1>
+          <div class="box">
+            <h2>Email</h2>
+            <input type="email" class="input" value="example@example.com" />
+            <button class="updateBtn">Update</button>
+          </div>
+        </div>
+        <div class="EnrolledEvents">
+          <h1 id="Bevents">Booked Events</h1>
+
+          <p id="B_events">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sed
+            erat in dui faucibus molestie ultrices id nisl. Cras vehicula auctor
+            leo in efficitur. Nulla erat mauris, eleifend et ipsum quis, cursus
+            ultricies lacus. Nam vel lorem facilisis, molestie risus id,
+            convallis dolor. Aliquam fringilla purus non ipsum consequat, sed
+            lobortis urna lacinia. Nam ullamcorper, lorem in molestie sagittis,
+            ex nunc porttitor ex, ut convallis sem velit et metus. Ut sit amet
+            metus mauris. Quisque ullamcorper semper convallis. Praesent tempor
+            consequat justo vel varius. Integer pulvinar hendrerit libero a
+            mollis. Nam lectus nisl, auctor vitae eleifend quis, ornare
+            imperdiet felis. Quisque non dictum tellus, vel pretium mauris.
+            Fusce dignissim mattis nisi, sed gravida ipsum accumsan iaculis.
+            Orci varius natoque penatibus et magnis dis parturient montes,
+            nascetur ridiculus mus. Donec congue eget enim vel hendrerit.
+            Maecenas egestas porttitor congue. Sed a diam pulvinar, luctus
+            lectus id, luctus lectus. Pellentesque tellus quam, dapibus a quam
+            eget, malesuada venenatis eros. Cras ornare, ipsum id tincidunt
+            commodo, felis velit interdum felis, eu egestas odio mauris eget
+            mauris. Mauris et viverra ipsum. Mauris id urna vel ex egestas
+            dictum. Proin tortor urna, tempus sit amet tincidunt at, sagittis a
+            urna. Nam sagittis dapibus hendrerit. Donec id tristique est.
+            Maecenas porttitor cursus sem, at lobortis lectus scelerisque vel.
+            Praesent viverra iaculis pretium. Integer malesuada eget erat id
+            sollicitudin. Sed mollis erat eu mauris elementum, et mattis est
+            consectetur. Nulla non augue quis tellus porttitor bibendum. Cras
+            condimentum ipsum in varius varius. Nunc lectus nisl, consequat nec
+            enim eget, mollis lacinia justo. Nunc sapien mauris, dignissim sed
+            orci scelerisque, congue vehicula mauris. Cras placerat nisi ornare,
+            suscipit lectus et, pulvinar neque. Proin at imperdiet ex, sed
+            molestie sapien. Nunc quis faucibus elit. Lorem ipsum dolor sit
+            amet, consectetur adipiscing elit. Vivamus pulvinar sodales risus,
+            vitae rutrum leo interdum quis. Phasellus id odio pharetra augue
+            mollis vehicula. Aenean lacinia luctus vehicula. Quisque
+            pellentesque lobortis pellentesque. Suspendisse pretium sit amet
+            ante a dignissim. Nullam tortor nunc, maximus id nunc aliquam,
+            vestibulum porta nisi. Etiam accumsan blandit quam, et fermentum
+            nisi volutpat non. Donec scelerisque porttitor sodales. Maecenas
+            volutpat sapien quis mi scelerisque, ut hendrerit lacus facilisis.
+            Praesent a euismod orci, quis congue est. Curabitur bibendum
+            placerat lectus, a viverra felis ultrices tincidunt. Donec sit amet
+            justo vitae ipsum fermentum iaculis at non diam. Fusce semper
+            malesuada convallis. Duis a eros massa. Ut id eros leo. Nullam
+            placerat lacus vitae gravida hendrerit. Quisque fermentum risus
+            condimentum arcu malesuada facilisis. Etiam dignissim diam et
+            molestie feugiat. Cras lobortis cursus commodo. Pellentesque maximus
+            sapien nec sodales hendrerit. Suspendisse egestas accumsan massa, at
+            vulputate leo aliquet sit amet. Duis a risus sit amet orci
+            sollicitudin auctor ut hendrerit ligula. Aliquam vitae lacus nisi.
+            Proin mollis libero in lacus mattis, ac luctus ante vehicula. Ut non
+            felis urna. Pellentesque ut tortor fringilla, tempus diam
+            ullamcorper, tempus ligula. Nulla sed faucibus ex, in aliquet nulla.
+            Aliquam erat volutpat. Vestibulum ante ipsum primis in faucibus orci
+            luctus et ultrices posuere cubilia curae; Curabitur id volutpat
+            metus.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script src="profileSettings.js"></script>
+  </body>
+</html>

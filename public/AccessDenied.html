@@ -1,0 +1,46 @@
+<!--Credit to MarkHjorth -->
+
+<!DOCTYPE html>
+<html lang=en>
+
+
+<head>
+  <meta charset="UTF-8">
+  <title>Access Denied</title>
+  <link rel="stylesheet" href="stylesheets/ClubHubStyling.css">
+</head>
+
+<body>
+  <div class="container" onclick="playSound()">
+    <div class="nedry">
+      <img class="nedry-body" src="images/body.png" alt="this is a body">
+      <img class="nedry-head" src="images/head.png" alt="this is a head">
+      <img class="nedry-hand" src="images/hand.png" alt="this is a hand">
+    </div>
+    <audio id="player" autoplay loop>
+      <source src="audio/ahahah.mp3" type="audio/mp3">
+    </audio>
+    <input id="unmuteButton" type="button" onclick="playSound()" value="Click Here to Go Back Home!" />
+    <button id="Please" type="button" onclick="location.href='HomePage.html';">Please!</button>
+
+  </div>
+
+  <script>
+    const sound = document.getElementById('player');
+
+    sound.addEventListener('play', (event) => {
+      document.getElementById("unmuteButton").hidden = true;
+    });
+    sound.addEventListener('pause', (event) => {
+      document.getElementById("unmuteButton").hidden = false;
+    });
+
+    function playSound() {
+      document.getElementById("player").play();
+      unmuteButton.style.display = 'none';
+      Please.style.display = 'inline-block';
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="AdminManager.css" />
+  </head>
+  <body>
+    <div class="topNav">
+      <div class="left">
+        <nav>
+          <a href="#" class="tab active">Home</a>
+
+          <button id="makeAdmin" class="admin">Assign Admin</button>
+          <button id="makeClub" class="admin">Create Club</button>
+          <a href="/profileSettings.html" class="tab active topLeft"
+            >Settings</a
+          >
+        </nav>
+      </div>
+
+      <br />
+      <h1 id="title"><span class="clubCol">Club</span>Hub</h1>
+
+      <hr class="breakTop" />
+    </div>
+    <div class="leftContent">
+      <div class="availbleClubs">
+        <h2>Clubs</h2>
+        <div class="btns">
+          <button class="btn">Comedy Club</button>
+          <button class="delete">delete</button>
+        </div>
+        <div class="btns">
+          <button class="btn">Computer Science Club</button>
+          <button class="delete">delete</button>
+        </div>
+        <div class="btns">
+          <button class="btn">Swings Club</button>
+          <button class="delete">delete</button>
+        </div>
+      </div>
+    </div>
+    <div class="rightContent">
+      <h2 class="UserContent">Users</h2>
+      <hr class="break" />
+      <div class="userNumbers">
+        <div class="user">
+          <p class="name">Name: Bob Marlin</p>
+          <p class="userName">UserName: ManBat</p>
+          <p class="MemeberID">Member: 123456</p>
+        </div>
+        <hr class="breakUser" />
+      </div>
+      <div class="find">
+        <h2 class="fUser">Find User:</h2>
+        <input
+          type="search"
+          id="searchMemberID"
+          name="q"
+          placeholder="Enter User Name"
+        />
+        <br />
+        <button id="removeUser" class="userOption">Remove</button>
+        <button id="moreDetails" class="userOption1">Search</button>
+      </div>
+    </div>
+  </body>
+</html>

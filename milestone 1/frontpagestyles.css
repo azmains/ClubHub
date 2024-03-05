@@ -1,0 +1,156 @@
+div.pageContent {
+    margin: auto;
+    display: inline-block;
+}
+
+div.EventBox {
+    max-width: 100%;
+    min-width: 300px;
+    margin-left: 2rem;
+}
+
+div.eventsBoxBorder {
+    border: 5px solid black;
+    border-radius: 15px;
+    margin: 0.1rem;
+}
+
+div.paddingForEventContent {
+    padding-bottom: 1%;
+    padding-right: 30px;
+}
+
+div.paddingForContent {
+    padding: 1%;
+}
+
+.forumPosts {
+    border: 2px solid black;
+    margin-top: 1%;
+}
+
+.underline {
+    border-bottom: 3px solid black;
+}
+
+div.event {}
+
+div.eventText {
+    width: 25%;
+    height: auto;
+    display: inline-block;
+}
+
+div.upcomingEventButton {
+    text-align: right;
+    display: inline-block;
+    padding-left: 300px;
+}
+
+div.pastEventButton {
+    text-align: right;
+    vertical-align: top;
+    display: inline-block;
+    padding-top: 1%;
+    padding-left: 50px;
+}
+
+button.book {
+    font-size: 150%;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    border: 3px solid red;
+    background-color: white;
+    color: red;
+    border-radius: 20px;
+}
+
+button.viewMoreLess {
+
+    color: blue;
+    background-color: white;
+    border: none;
+
+
+}
+
+/*button on hover and on action stuff{
+
+}*/
+
+div.images {
+    display: inline-block;
+}
+
+ul.eventsList {
+    margin: 0;
+    padding-left: 30px;
+}
+
+li.hasUnderLine {
+    border-bottom: 3px solid black;
+    list-style-type: none;
+}
+
+span.h1Left {
+    margin-left: 5%;
+    float: left;
+
+}
+
+span.h1Center {
+
+    margin: 0 auto;
+
+
+}
+
+a {
+    text-decoration: none;
+}
+
+span.h1Right {
+    float: right;
+    margin-right: 5%
+}
+
+div#navBar {
+    margin: 0 auto;
+    text-align: center;
+    width: 99%;
+    border-bottom: 5px solid black;
+}
+
+div.images img {
+    width: 50%;
+    height: auto;
+    border-radius: 50%;
+    border: 3px black;
+    float: right;
+
+}
+
+.container {
+    min-width: 650px;
+}
+
+.leftHandSide {
+    margin-top: 5.5rem;
+    width: 60%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /*  background: #0057e3;*/
+}
+
+.rightHandSide {
+    margin-top: 5.5rem;
+    width: 40%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: 60%;
+    /* background: #009938;*/
+}
